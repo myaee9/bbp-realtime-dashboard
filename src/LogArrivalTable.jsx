@@ -9,16 +9,17 @@ const LogArrivalTable = () => {
         border: '1px solid #444'
     };
 
-    const getRankStyle = (rank) => {
-        const base = {
-            width: '100%',
-            margin: '0 auto',
-            fontWeight: 'bold',
-            padding: '2px 0',
-            border: '1px solid #999',
-            textAlign: 'center',
-            fontSize: '12px'
-        };
+  const getRankStyle = (rank) => {
+    const base = {
+        width: '60px',
+        margin: '2px auto', 
+        fontWeight: 'bold',
+        padding: '2px 0',
+        border: '1px solid #999',
+        textAlign: 'center',
+        fontSize: '12px',
+        lineHeight: '1.2' 
+    };
 
         let bgColor = '';
         if (rank === 1) bgColor = '#00b050';
@@ -50,71 +51,90 @@ const LogArrivalTable = () => {
 
     return (
         <div className="table-responsive mt-3" style={{ overflowX: 'auto' }}>
-            <table className="table table-bordered border-dark table-sm text-center align-middle" style={{ fontSize: '12px', minWidth: '1200px' }}>
-            <thead>
+<table className="table table-bordered border-dark table-sm text-center align-middle w-100" 
+       style={{ fontSize: '12px', minWidth: '1200px', tableLayout: 'fixed' }}>
+
+               <thead>
     <tr style={headerStyle}>
         <th rowSpan="3">No Grader</th>
         <th rowSpan="3">Nama Grader</th>
-        {/* Diubah dari colSpan="7" menjadi "6" */}
-        <th colSpan="6">KEDATANGAN August-2025</th> 
-        <th colSpan="2">Total</th>
-        <th rowSpan="3" style={{ width: '90px' }}>Rank</th>
-        <th colSpan="3">Jenis Kayu</th>
-        <th rowSpan="3">Note</th>
+        <th colSpan="13">KEDATANGAN August-2025</th> 
     </tr>
     <tr style={headerStyle}>
         <th colSpan="3">LOG 5 F</th>
         <th colSpan="3">LOG 9 F</th>
-        {/* Kolom "Avrg Diameter" yang berdiri sendiri di sini DIHAPUS */}
-        <th rowSpan="2">Pcs</th>
-        <th rowSpan="2">Vol</th>
-        <th rowSpan="2">Jabon</th>
-        <th rowSpan="2">Albasia</th>
-        <th rowSpan="2">Mahoni</th>
+        <th colSpan="2">Total</th>
+        <th rowSpan="2" style={{ width: '80px' }}>Rank</th>
+        <th colSpan="3">Jenis Kayu</th>
+        <th rowSpan="2">Note</th> 
     </tr>
     <tr style={headerStyle}>
         <th>Pcs</th><th>Vol</th><th>Avrg Diameter</th>
         <th>Pcs</th><th>Vol</th><th>Avrg Diameter</th>
+        <th>Pcs</th><th>Vol</th>
+        <th>Jabon</th><th>Albasia</th><th>Mahoni</th>
     </tr>
 </thead>
-               <tbody>
+
+
+              <tbody>
     {data.map((item, index) => (
-        <React.Fragment key={index}>
-            <tr>
-                <td>{item.id}</td>
-                <td className="text-start ps-2 fw-bold">{item.name}</td>
-                <td>{item.l5_pcs}</td><td>{item.l5_vol}</td>
-                <td className="fw-bold" style={{ color: '#0070c0' }}>{item.l5_dia}</td>
-                <td>{item.l9_pcs}</td><td>{item.l9_vol}</td>
-                <td className="fw-bold" style={{ color: '#0070c0' }}>{item.l9_dia}</td>
-                
-                {/* KOLOM YANG DIHAPUS: <td style={{ backgroundColor: '#f2f2f2' }}>-</td> */}
-                
-                <td>{item.t_pcs}</td><td>{item.t_vol}</td>
-                <td rowSpan="2"><div style={getRankStyle(item.rank)}>{item.rank}</div></td>
-                <td style={{ color: '#0070c0' }}>{item.jabon}</td>
-                <td style={{ color: '#0070c0' }}>{item.albasia}</td>
-                <td>-</td>
-                <td rowSpan="2"></td>
-            </tr>
-            <tr style={{ height: '20px' }}>
-                <td className="text-start ps-1 text-muted" style={{ fontSize: '10px', borderTop: 'none' }}>{item.id} Total</td>
-                <td style={{ borderTop: 'none' }}></td>
-                {/* Kurangi satu kolom <td> kosong di baris sub-total */}
-            </tr>
-        </React.Fragment>
+        <tr key={index}> 
+            <td>{item.id}</td>
+            <td className="text-start ps-2 fw-bold">{item.name}</td>
+            <td>{item.l5_pcs}</td>
+            <td>{item.l5_vol}</td>
+            <td className="fw-bold" style={{ color: '#0070c0' }}>{item.l5_dia}</td>
+            <td>{item.l9_pcs}</td>
+            <td>{item.l9_vol}</td>
+            <td className="fw-bold" style={{ color: '#0070c0' }}>{item.l9_dia}</td>
+            
+ 
+            <td className="fw-bold">{item.t_pcs}</td>
+            <td className="fw-bold">{item.t_vol}</td>
+            
+    
+            <td>
+                <div style={getRankStyle(item.rank)}>{item.rank}</div>
+            </td>
+            
+       
+            <td style={{ color: '#0070c0' }}>{item.jabon}</td>
+            <td style={{ color: '#0070c0' }}>{item.albasia}</td>
+            <td>-</td>
+            
+     
+            <td></td>
+        </tr>
     ))}
 </tbody>
-                <tfoot className="table-secondary fw-bold border-top border-dark">
-                    <tr>
-                        <td colSpan="2">TOTAL</td>
-                        <td>18,439</td><td>979.023</td><td></td>
-                        <td>3,266</td><td>744.434</td><td></td>
-                        <td>-</td>
-                        <td>21,705</td><td>1,723.457</td><td>-</td>
-                        <td>2.463</td><td>1,720.99</td><td>-</td>
-                    </tr>
-                </tfoot>
+               <tfoot className="table-secondary fw-bold border-top border-dark">
+    <tr>
+      
+        <td colSpan="2">TOTAL</td>
+        
+   
+        <td>18,439</td>
+        <td>979.023</td>
+        <td></td>
+        
+
+        <td>3,266</td>
+        <td>744.434</td>
+        <td></td>
+        
+
+        <td>21,705</td> 
+        <td>1,723.457</td>
+        
+
+        <td></td> {/* Rank */}
+        <td>2.463</td> {/* Jabon */}
+        <td>1,720.99</td> {/* Albasia */}
+        <td>-</td> {/* Mahoni */}
+        <td></td> {/* Note */}
+    </tr>
+</tfoot>
             </table>
         </div>
     );

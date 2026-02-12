@@ -113,10 +113,10 @@ html {
 
         return (
             <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-                {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
+       
                 <div>
                     <div className="mb-4">
-                        {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
+                       
                         <img src={LogoImage} alt="PT BBP Logo"
                             className="img-fluid"
                             style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -146,7 +146,6 @@ html {
                     </div>
                 </div>
 
-                {/* Bagian Bawah: Tombol Logout */}
                 <div className="pt-4 border-top">
                     <button
                         onClick={handleLogout}
@@ -174,7 +173,7 @@ ChartJS.register(
 
 
 
-// --- Data Dummy ---
+
 const dailyRejectData = {
     labels: ['19/07', '20/07', '21/07', '22/07', '23/07', '24/07', '25/07', '26/07', '27/07', '28/07', '29/07', '30/07', '31/07', '01/08'],
     datasets: [
@@ -253,12 +252,12 @@ const categoryRejectData = {
         {
             data: [41, 0, 30, 29, 0, 0],
             backgroundColor: [
-                '#36A2EB', // (PLYWOOD) 
-                '#FF6384', // (LVL)
-                '#FF9F40', // (BLOCKBOARD)
-                '#4BC0C0', // (DOORCORE)
-                '#9966FF', // (BARE CORE LAYER)
-                '#FFCD56', // (FINGER JOINT) 
+                '#36A2EB',
+                '#FF6384', 
+                '#FF9F40',
+                '#4BC0C0', 
+                '#9966FF', 
+                '#FFCD56',  
             ],
             hoverOffset: 4,
         },
@@ -299,7 +298,7 @@ const categoryRejectOptions = {
             }
         },
         legend: {
-            display: false, // Legend manual di bawah chart
+            display: false, 
         },
     },
     cutout: '0%',
@@ -361,7 +360,7 @@ const shiftRejectOptions = {
             }
         }
     },
-    indexAxis: 'x', // Bar vertikal
+    indexAxis: 'x',
 };
 
 const topRejectData = {
@@ -369,7 +368,7 @@ const topRejectData = {
     datasets: [
         {
             label: '% Reject',
-            data: [7.3, 8.0, 5.0], // Data dummy, menyesuaikan panjang bar dri gambar
+            data: [7.3, 8.0, 5.0], 
             backgroundColor: '#28a745',
             borderColor: '#28a745',
             borderWidth: 1,
@@ -416,7 +415,7 @@ const topRejectOptions = {
             }
         }
     },
-    indexAxis: 'y', // Bar horizontal
+    indexAxis: 'y', 
 };
 
 const detailTableData = [
@@ -529,7 +528,7 @@ const RejectRateQCFI = () => {
 
             <div className="d-flex dashboard-bg min-vh-100 text-dark">
 
-                {/* === TOGGLE === */}
+
                 <div
                     className="position-absolute top-0 start-0 p-3 sidebar-toggle-btn text-success"
                     onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -544,12 +543,12 @@ const RejectRateQCFI = () => {
                     ⋮
                 </div>
 
-                {/* === SIDEBAR CONTAINER === */}
+               
                 <div className={sidebarOpen ? "" : "sidebar-closed"}>
                     <Sidebar />
                 </div>
 
-                {/* === MAIN CONTENT === */}
+             
                 <div className="flex-grow-1">
 
                     <div style={{ padding: '0px', backgroundColor: '#f5f5f5' }}>

@@ -103,14 +103,14 @@ html {
   font-size: 24px;
   z-index: 999;
 }
-/* Style untuk membuat baris tabel tidak striped */
+
 .table.table-no-striped tbody tr:nth-of-type(odd) {
-    background-color: #fff !important; /* Memastikan background tetap putih */
+    background-color: #fff !important; 
 }
 
-/* Custom class untuk membuat tabel lebih besar */
+
 .table-big-row td, .table-big-row th {
-    padding: 10px 8px !important; /* Menambah padding untuk sel yang lebih tinggi */
+    padding: 10px 8px !important; 
 }
 `;
 
@@ -135,10 +135,9 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
+                
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -168,7 +167,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
+           
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -182,7 +181,7 @@ const Sidebar = () => {
     );
 };
 
-// --- Data Dummy Shipment (TIDAK DIUBAH) ---
+
 const shipmentData = [
     { month: 'January-2025', target: 1500.0, delivery: 1342.99, percentActual: 89.53, percentTable: 90 },
     { month: 'February-2025', target: 1500.0, delivery: 1400.17, percentActual: 93.34, percentTable: 93 },
@@ -208,7 +207,7 @@ const productData = [
 ];
 
 
-// --- Komponen Bar Chart (Delivery Performance) --- (TIDAK DIUBAH)
+
 const BarChartRepresentation = ({ data }) => {
     const chartData = data.slice(0, 7).reverse();
     const maxAxis = 1800;
@@ -225,7 +224,7 @@ const BarChartRepresentation = ({ data }) => {
     const barContainerStyle = {
         padding: '1rem',
         borderRadius: '0.5rem',
-        backgroundColor: '#ffffff', // Light Card Background
+        backgroundColor: '#ffffff', 
         border: '1px solid #dee2e6',
         boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, 0.05)',
         minHeight: '370px',
@@ -254,7 +253,7 @@ const BarChartRepresentation = ({ data }) => {
                     const actualDelivery = parseFloat(item.delivery);
                     const percentageOfMax = isNaN(actualDelivery) ? 0 : (actualDelivery / maxAxis) * 100;
                     const isTargetMet = item.percentActual >= 100;
-                    const barColor = isTargetMet ? '#28a745' : '#dc3545'; // Green for met, Red for unmet
+                    const barColor = isTargetMet ? '#28a745' : '#dc3545'; 
 
                     return (
                         <div key={index} style={{ display: 'flex', alignItems: 'center', fontSize: '0.85rem', height: '25px' }}>
@@ -277,7 +276,7 @@ const BarChartRepresentation = ({ data }) => {
                                         minWidth: percentageOfMax > 5 ? '80px' : '0'
                                     }}
                                 >
-                                    {/* Nilai Delivery (di dalam bar) */}
+                                   
                                     <span style={{
                                         color: 'white',
                                         fontWeight: 'bold',
@@ -287,7 +286,7 @@ const BarChartRepresentation = ({ data }) => {
                                         {item.delivery !== '-' ? formatNumber(item.delivery) : ''}
                                     </span>
 
-                                    {/* Nilai Persentase (di dalam bar) */}
+                                   
                                     <span style={{
                                         color: 'white',
                                         fontSize: '0.8rem',
@@ -304,7 +303,7 @@ const BarChartRepresentation = ({ data }) => {
                 })}
             </div>
 
-            {/* Garis X Axis */}
+          
             <div style={{ height: '1px', backgroundColor: '#ddd', marginTop: '20px', position: 'relative' }}>
                 {xAxisLabels.slice(1, -1).map((_, i) => (
                     <div key={i} style={{
@@ -318,7 +317,7 @@ const BarChartRepresentation = ({ data }) => {
                 ))}
             </div>
 
-            {/* Label X Axis */}
+          
             <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -337,10 +336,10 @@ const BarChartRepresentation = ({ data }) => {
 };
 
 
-// --- Komponen Pie Chart (Delivery by Product) ---
+
 const PieChartRepresentation = ({ data }) => {
     
-    // 1. Konversi data untuk Chart.js Doughnut/Pie
+  
     const chartData = {
         labels: data.map(item => item.name),
         datasets: [
@@ -354,7 +353,7 @@ const PieChartRepresentation = ({ data }) => {
         ],
     };
 
-    // 2. Opsi untuk Pie Chart (Jika menggunakan Chart.js Doughnut)
+
     const chartOptions = {
         responsive: true,
         maintainAspectRatio: false,
@@ -371,16 +370,15 @@ const PieChartRepresentation = ({ data }) => {
             legend: {
                 display: false,
             },
-            // *** MODIFIKASI 3: KONFIGURASI DATALABELS ***
             datalabels: {
                  color: '#fff', 
                  font: { 
                     weight: 'bold', 
-                    size: 11 // Ukuran font 11
+                    size: 11 
                  },
                  formatter: (value) => value > 0 ? value + '%' : '',
                  align: 'center',
-                 textShadow: { // Shadow untuk kejelasan
+                 textShadow: { 
                     color: 'rgba(0, 0, 0, 0.7)', 
                     blur: 3 
                  },
@@ -399,7 +397,7 @@ const PieChartRepresentation = ({ data }) => {
         marginBottom: '10px',
     };
 
-    // Style untuk Legenda Manual
+    
     const legendItemStyle = (color) => ({
         display: 'flex',
         alignItems: 'center',
@@ -425,15 +423,15 @@ const PieChartRepresentation = ({ data }) => {
             <Card.Body style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div style={sectionTitleStyle}>DELIVERY BY PRODUCT – 2025</div>
 
-                {/* Container untuk Chart (Menggunakan Doughnut Chart.js) */}
+               
                 <div style={{ position: 'relative', width: '220px', height: '220px', margin: '5px auto 30px auto' }}>
                     
-                    {/* BARIS YANG DIGANTI: Tambahkan plugins={[ChartDataLabels]} */}
+                   
                     <Doughnut data={chartData} options={chartOptions} plugins={[ChartDataLabels]} /> 
                     
                 </div>
                 
-                {/* Legenda Manual */}
+             
                 <div style={{
                     fontSize: '0.8rem',
                     display: 'flex',
@@ -456,13 +454,12 @@ const PieChartRepresentation = ({ data }) => {
 };
 
 
-// --- Komponen Header (Gaya Referensi Reject) ---
+
 const DashboardHeader = ({ formattedTime }) => {
-    // Menggunakan style yang SAMA PERSIS dengan header RejectRateQCFI.jsx
     const headerStyle = {
         backgroundColor: '#007bff',
         color: 'white',
-        padding: '10px 15px', // padding yang sama
+        padding: '10px 15px',
         fontWeight: 'bold',
         fontSize: '20px',
         display: 'flex',
@@ -471,18 +468,17 @@ const DashboardHeader = ({ formattedTime }) => {
     };
 
     return (
-        // Dibungkus div style yang sama
         <div style={{ padding: '0px', backgroundColor: '#f5f5f5' }}> 
             <div style={headerStyle}>
                 <span>Plan Vs Actual Shipment</span>
-                <span style={{ fontSize: '16px' }}> {formattedTime}</span> {/* Font size 16px seperti referensi */}
+                <span style={{ fontSize: '16px' }}> {formattedTime}</span> 
             </div>
         </div>
     );
 };
 
 
-// --- Komponen Utama Dashboard ---
+
 const ShipmentDashboardBS = () => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -504,27 +500,27 @@ const ShipmentDashboardBS = () => {
 
 
 
-    // Style Header Tabel SAMA PERSIS dengan gambar referensi (Header Gelap)
+   
     const tableHeaderStyle = {
-        backgroundColor: '#333', // Warna gelap
+        backgroundColor: '#333', 
         fontWeight: 'bold',
-        fontSize: '14px', // Dibuat lebih besar
-        color: '#fff', // Teks Putih
+        fontSize: '14px', 
+        color: '#fff', 
         textAlign: 'center',
-        padding: '10px 8px', // Dibuat lebih besar
-        border: '1px solid #333' // Border gelap
+        padding: '10px 8px', 
+        border: '1px solid #333' 
     }
     
-    // Style untuk sel data
+ 
     const tableDataStyle = {
-        textAlign: 'center', // Default rata tengah untuk angka
-        padding: '10px 8px', // Dibuat lebih besar
-        border: '1px solid #dee2e6', // Border abu-abu muda
-        backgroundColor: '#fff', // Background putih (menghilangkan striping)
-        fontSize: '14px', // Dibuat lebih besar
+        textAlign: 'center', 
+        padding: '10px 8px', 
+        border: '1px solid #dee2e6', 
+        backgroundColor: '#fff', 
+        fontSize: '14px', 
     }
 
-    // Mengganti style judul Detail Plan vs Actual Shipment (Sesuai Gambar)
+  
     const cardTitleStyle = {
         fontWeight: 'bold',
         fontSize: '16px',
@@ -541,7 +537,7 @@ const ShipmentDashboardBS = () => {
 
             <div className="d-flex dashboard-bg min-vh-100 text-dark">
 
-                {/* === TOGGLE === */}
+              
                 <div
                     className="position-absolute top-0 start-0 p-3 sidebar-toggle-btn text-success"
                     onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -556,44 +552,44 @@ const ShipmentDashboardBS = () => {
                     ⋮
                 </div>
 
-                   {/* === SIDEBAR CONTAINER === */}
+                
                 <div className={sidebarOpen ? "" : "sidebar-closed"}>
                     <Sidebar />
                 </div>
 
-                {/* === MAIN CONTENT AREA === */}
+                
                 <div className="flex-grow-1">
 
-                    {/* === HEADER === */}
+                
                     <DashboardHeader formattedTime={formattedTime} />
 
-                    {/* PERBAIKAN PENTING: Menggunakan Container fluid untuk lebar penuh */}
+                 
                     <Container fluid style={{ padding: '15px' }}>
                         
-                        {/* PERBAIKAN PENTING: Tambahkan d-flex dan h-100 pada Row agar kolom mengisi tinggi view port */}
+                     
                         <Row className="d-flex h-100"> 
                             
-                            {/* KOLOM KIRI: Tabel Data (Diperbesar: col-lg-8) */}
+                            
                             <Col lg={8} md={12} className="mb-4 d-flex"> 
                                 
-                                {/* Gunakan d-flex w-100 h-100 agar Card mengisi Col sepenuhnya */}
+                            
                                 <Card className="shadow-sm w-100 d-flex flex-column" style={{ minHeight: '80vh' }}>
                                     
-                                    {/* Card Header (Judul) */}
+                                   
                                     <div style={cardTitleStyle}>
                                         Detail Plan vs Actual Shipment
                                     </div>
                                     
-                                    {/* Card Body (Tabel) - flex-grow-1 agar mengambil sisa ruang vertikal */}
+                                  
                                     <Card.Body className="p-0 d-flex flex-column flex-grow-1">
                                         
-                                        {/* Menghilangkan MaxHeight dan membiarkan tabel mengambil sisa ruang.
-                                             Menambahkan overflow-y: auto untuk scroll jika konten terlalu banyak. */}
+                                      
+
                                         <div className="table-responsive flex-grow-1" style={{ overflowY: 'auto' }}> 
-                                            {/* Menambahkan class table-big-row untuk custom padding yang lebih besar */}
+
                                             <table className="table table-no-striped table-big-row" style={{ marginBottom: '0' }}> 
 
-                                                {/* Header Tabel */}
+                                               
                                                 <thead>
                                                     <tr>
                                                         <th rowSpan="2" style={{...tableHeaderStyle, width: '25%', borderRight: '1px solid #fff'}}> 
@@ -616,28 +612,28 @@ const ShipmentDashboardBS = () => {
                                                     </tr>
                                                 </thead>
 
-                                                {/* Body Tabel */}
+                                             
                                                 <tbody>
                                                     {shipmentData.map((item, index) => {
-                                                        // Warna berdasarkan persentase (hijau atau merah)
+                                                    
                                                         const percentColor = item.percentTable >= 85 && item.percentTable > 0 ? '#28a745' : '#dc3545';
                                                         const deliveryText = item.delivery === '-' ? '-' : parseFloat(item.delivery).toLocaleString('en-US', { minimumFractionDigits: 2 });
                                                         
-                                                        // Background sel untuk menghilangkan striping
+                                                      
                                                         const rowBg = index % 2 === 0 ? '#f8f9fa' : 'white'; 
                                                         
                                                         return (
                                                             <tr key={index} style={{ backgroundColor: rowBg }}>
-                                                                {/* Month Report (Rata kiri) */}
+                                                         
                                                                 <td style={{ ...tableDataStyle, textAlign: 'left', paddingLeft: '15px' }}>{item.month}</td>
                                                                 
-                                                                {/* Target (Rata kanan) */}
+                                                           
                                                                 <td style={{ ...tableDataStyle, textAlign: 'right' }}>{item.target.toLocaleString('en-US', { minimumFractionDigits: 1 })}</td>
                                                                 
-                                                                {/* Delivery (Rata kanan) */}
+                                                              
                                                                 <td style={{ ...tableDataStyle, textAlign: 'right' }}>{deliveryText}</td>
                                                                 
-                                                                {/* Percent Capian (%) (Warna, Rata tengah) */}
+                                                             
                                                                 <td style={{
                                                                     ...tableDataStyle,
                                                                     fontWeight: 'bold',
@@ -657,15 +653,15 @@ const ShipmentDashboardBS = () => {
                                 </Card>
                             </Col>
 
-                            {/* KOLOM KANAN: Dua Chart (Dipersempit: col-lg-4) */}
+                         
                             <Col lg={4} md={12} className="d-flex h-100">
                                 <Row className="w-100">
-                                    {/* Chart Atas: Delivery Performance (Bar Chart) */}
+                                
                                     <Col xs={12} className="mb-3">
                                         <BarChartRepresentation data={shipmentData} />
                                     </Col>
 
-                                    {/* Chart Bawah: Delivery by Product (Pie Chart) - DIBUNGKUS CARD */}
+                                   
                                     <Col xs={12}>
                                         <PieChartRepresentation data={productData} />
                                     </Col>

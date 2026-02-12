@@ -12,21 +12,19 @@ const BlowDetectCurrentMonth = () => {
   ];
 
   return (
-    /* Mengikuti struktur Grading: Container utama dengan height calc */
     <div style={{ width: "100%", height: "calc(100vh - 100px)", display: "flex", flexDirection: "column", background: "#2A7A8C" }}>
       
-      {/* Header tetap hijau sesuai identitas Blow Detect */}
+
       <div style={{ background: "transparent", padding: "15px", fontSize: "22px", fontWeight: "bold", color: "white" }}>
         JENIS REJECT BULAN INI
       </div>
 
-      {/* Area Tabel: Menerapkan flex-grow dan overflow dari Grading agar proporsional */}
       <div style={{ flexGrow: 1, overflow: "auto", background: "white" }}>
         <table style={{ 
           width: "100%", 
           height: "100%", 
           borderCollapse: "collapse", 
-          tableLayout: "fixed" /* PENTING: Mengikuti Grading agar kolom tidak gepeng */
+          tableLayout: "fixed" 
         }}>
           <thead>
             <tr style={{ background: "#3B3B3B", color: "white" }}>
@@ -58,7 +56,6 @@ const BlowDetectCurrentMonth = () => {
                 <td style={tdStyle}>{item[7]}</td>
               </tr>
             ))}
-            {/* Baris TOTAL: Lebar kolom kini akan sama persis dengan Grading karena table-layout: fixed */}
             <tr style={{ background: "#757575", color: "white", fontWeight: "bold" }}>
               <td colSpan="4" style={tdStyle}>TOTAL</td>
               <td style={tdStyle}>443</td>
@@ -89,7 +86,7 @@ const BlowDetectCurrentMonth = () => {
   );
 };
 
-/* Menggunakan style sel (padding 10px) yang sama persis dengan Grading */
+
 const thStyle = { border: "1px solid #dee2e6", padding: "10px", textAlign: "center", fontSize: "13px" };
 const tdStyle = { border: "1px solid #dee2e6", padding: "10px", textAlign: "center", fontSize: "13px" };
 

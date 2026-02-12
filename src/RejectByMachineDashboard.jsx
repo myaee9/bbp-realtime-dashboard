@@ -239,7 +239,7 @@ const RejectByMachineDashboard = () => {
                 </div>
                 <div className="main-content dashboard-bg-main" style={{ color: "white" }}>
 
-                    {/* HEADER */}
+                    
                     <div className="dashboard-header-right">
                         <div className="text-right">
                             <h5 style={{ letterSpacing: "1px", marginBottom: "-5px", color: "white", fontSize: '18px' }}>
@@ -257,12 +257,12 @@ const RejectByMachineDashboard = () => {
 
                     <div style={{ padding: '20px 0' }}></div>
 
-                 {/* MAIN AREA */}
+
                     <div className="container-fluid p-4">
                       <div className="row" style={{ gap: "0px" }}>
 
 
-                            {/* LEFT TABLE*/}
+        
                             <div className="col-md-7 mb-4" style={{ paddingRight: '10px' }}>
                                 <div
                                     style={{
@@ -315,7 +315,7 @@ const RejectByMachineDashboard = () => {
                                 </div>
                             </div>
 
-                            {/* RIGHT CHART */}
+            
                             <div className="col-md-5 mb-4" style={{ paddingLeft: '10px' }}>
                                 <div
                                     style={{

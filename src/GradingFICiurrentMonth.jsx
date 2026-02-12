@@ -2,7 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const GradingFICurrentMonth = () => {
-  // Data dari FI current month.png
   const data = [
     { produk: "Barecore Layer", cek: 0, delaminasi: 0, ngerol: 0, tidak_dempul: 0, serat_kasar: 0, blister: 0, total: 0, pct: "0.00%" },
     { produk: "BlockBoard", cek: 135, delaminasi: 10, ngerol: 1, tidak_dempul: 0, serat_kasar: 0, blister: 1, total: 12, pct: "8.89%" },
@@ -15,11 +14,11 @@ const GradingFICurrentMonth = () => {
   return (
     <div style={{ 
       width: "100%", 
-      height: "calc(100vh - 150px)", // Mengunci tinggi agar pas satu layar
+      height: "calc(100vh - 150px)", 
       display: "flex", 
       flexDirection: "column", 
       background: "white",
-      marginTop: "-30px" // Menaikkan posisi pembungkus
+      marginTop: "-30px" 
     }}>
       
       <div style={{ 
@@ -36,7 +35,7 @@ const GradingFICurrentMonth = () => {
       <div style={{ flexGrow: 1, overflow: "hidden", background: "white" }}>
         <table style={{ 
           width: "100%", 
-          height: "100%", // Memaksa tabel muat dalam satu area (tanpa scroll)
+          height: "100%", 
           borderCollapse: "collapse", 
           tableLayout: "fixed" 
         }}>

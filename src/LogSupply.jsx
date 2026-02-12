@@ -21,7 +21,7 @@ const customStyles = `
 .dashboard-bg { 
     background-color: #f8f9fa; 
     display: flex; 
-    min-height: 100vh; /* UBAH: dari height ke min-height agar bisa scroll */
+    min-height: 100vh; 
 }
 
 .sidebar {
@@ -29,7 +29,7 @@ const customStyles = `
     border-right: 1px solid #f1f1f1;
     width: 250px;
     min-width: 250px;
-    min-height: 100vh; /* TAMBAHKAN: agar sidebar mengikuti tinggi konten */
+    min-height: 100vh;
     transition: all 0.3s ease;
 }
 
@@ -50,7 +50,7 @@ const customStyles = `
 .main-content-wrapper {
     background-color: #3e8494;
     flex-grow: 1;
-    min-height: 100vh; /* UBAH: agar konten bisa memanjang ke bawah */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -99,10 +99,10 @@ const customStyles = `
     color: #212529 !important;
 }
 
-/* Penyesuaian khusus Mobile */
+
 @media (max-width: 991px) {
     .chart-box {
-        min-height: 350px !important; /* Memberi ruang di HP agar chart tidak gepeng */
+        min-height: 350px !important; 
     }
     .header-section {
         padding: 15px !important;
@@ -187,7 +187,6 @@ const LogSupply = () => {
             <div className="main-content-wrapper p-3">
                 <Container fluid className="p-0">
                     <Row className="m-0">
-                        {/* KOLOM KIRI: Bar Chart (Mendapat Order 1 di Mobile) */}
                         <Col lg={5} xs={12} className="d-flex flex-column pe-lg-4 mb-4 mb-lg-0 order-1">
                             <div className="header-section mb-3">
                                 <h1 style={{ color: '#ccff00', fontWeight: 'bold', fontSize: '3.2rem', margin: 0, lineHeight: 0.9 }}>TOP 5</h1>
@@ -199,9 +198,8 @@ const LogSupply = () => {
                             </div>
                         </Col>
 
-                        {/* KOLOM KANAN: Tabel & Pie (Mendapat Order 2 di Mobile) */}
+               
                         <Col lg={7} xs={12} className="d-flex flex-column gap-3 order-2">
-                            {/* Tabel Asal Log Daerah */}
                             <div className="table-container shadow-sm">
                                 <div className="p-2 fw-bold border-bottom" style={{ fontSize: '14px', color: '#212529 !important' }}>ASAL LOG DAERAH BULAN INI</div>
                                 <div className="table-scroll-box">
@@ -212,7 +210,6 @@ const LogSupply = () => {
                                 </div>
                             </div>
 
-                            {/* Tabel Asal Log Kota */}
                             <div className="table-container shadow-sm">
                                 <div className="p-2 fw-bold border-bottom" style={{ fontSize: '14px', color: '#212529 !important' }}>ASAL LOG KOTA TH.2025</div>
                                 <div className="table-scroll-box">
@@ -222,8 +219,7 @@ const LogSupply = () => {
                                     </Table>
                                 </div>
                             </div>
-
-                            {/* Pie Chart */}
+                            
                             <div className="chart-box" style={{ height: '35%', minHeight: '300px' }}>
                                 <Pie data={{ labels: ['BATANG', 'WONOSOBO', 'KENDAL', 'DIY', 'SEMARANG', 'LAINNYA'], datasets: [{ data: [7243, 1890, 978, 814, 325, 450], backgroundColor: ['#2e59d9', '#d94f2e', '#f6c23e', '#1cc88a', '#36b9cc', '#858796'] }] }} 
                                      options={{ maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: 'white', font: { size: 10 } } } } }} />

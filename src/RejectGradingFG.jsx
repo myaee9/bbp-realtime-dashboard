@@ -70,7 +70,6 @@ html, body, #root { background-color: #f8f9fa; }
 .chart-card { background-color: #262626; color: white; padding: 15px; height: 500px; border-radius: 5px; border: none; }
 `;
 
-// --- DATA (Tetap Sesuai Kode Asli) ---
 const rejectData = [
     { bulan: 'January-2025', workcenter: 'GRADING_FG', dicek: 33720, oke: 22347, reject: 6402, persen: 18.99 },
     { bulan: 'February-2025', workcenter: 'GRADING_FG', dicek: 28718, oke: 22226, reject: 5373, persen: 18.71 },
@@ -196,10 +195,8 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -229,7 +226,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
+
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -266,7 +263,6 @@ const RejectGradingFG = () => {
                         <Col xs={5} className="d-flex justify-content-end align-items-center pe-5">
                             <div className="date-box me-3">Friday, 01 August 2025</div>
                             
-                            {/* Logika tombol: Ganti label & fungsi berdasarkan state */}
                             {!isDetailView ? (
                                 <Button className="reject-button" onClick={() => setIsDetailView(true)}>
                                     Current Month
@@ -279,9 +275,7 @@ const RejectGradingFG = () => {
                         </Col>
                     </Row>
 
-                    {/* Conditional Rendering Utama */}
                     {!isDetailView ? (
-                        /* TAMPILAN OVERVIEW ASLI */
                         <Row className="content-area m-0">
                             <Col md={6}>
                                 <h4 className="content-title">REJECT PER BULAN</h4>
@@ -329,7 +323,7 @@ const RejectGradingFG = () => {
                             </Col>
                         </Row>
                     ) : (
-                        /* TAMPILAN GRADING CURRENT MONTH */
+
                         <div style={{ padding: '10px' }}>
                             <GradingCurrentMonth />
                         </div>

@@ -12,7 +12,7 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 flex-shrink-0" style={{ width: '250px', backgroundColor: '#ffffff' }}>
-            {/* Bagian Logo: ps-4 memberikan ruang untuk icon ⋮ melayang */}
+          
             <div className="mb-4 mt-0 ps-4">
                 <img
                     src={LogoImage}
@@ -22,7 +22,7 @@ const Sidebar = () => {
                 />
             </div>
 
-            {/* Menu Navigasi */}
+       
             <div className="small text-start">
                 <p className="fw-bold text-dark mb-2 mt-2"> Pengiriman</p>
                 <a href="/shipment" className={getLinkClass('/shipment')}>Plan Vs Actual Shipment</a>

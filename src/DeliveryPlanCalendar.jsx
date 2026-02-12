@@ -7,7 +7,6 @@ import LogoImage from './assets/PT_BBP_LOGODASHBOARD.png';
 
 
 const customStyles = `
-/* CSS untuk mereset default margin/padding browser */
 * {
     margin: 0 !important;
     padding: 0 !important;
@@ -74,7 +73,7 @@ html {
     z-index: 999;
 }
 
-/* --- CALENDAR SPECIFIC STYLES --- */
+
 .calendar-container { border: 1px solid #dee2e6; background-color: #fff; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05); border-radius: 0.5rem; }
 .calendar-day-header { background-color: #6c757d; color: white; font-weight: bold; text-align: center; border: 1px solid #dee2e6; }
 .calendar-day-header:nth-child(5) { background-color: #ffc107; color: #212529; } 
@@ -89,7 +88,7 @@ html {
 
 const Sidebar = () => {
     const navigate = useNavigate();
-    
+
     const getLinkClass = (path) => {
         const isActive = window.location.pathname === path;
         let classes = "d-block p-2 text-decoration-none rounded mb-1 small text-dark";
@@ -100,8 +99,8 @@ const Sidebar = () => {
 
     const handleLogout = () => {
         if (window.confirm("Apakah anda yakin ingin keluar?")) {
-            localStorage.removeItem('isLoggedIn'); 
-            navigate('/'); 
+            localStorage.removeItem('isLoggedIn');
+            navigate('/');
         }
     };
 
@@ -138,7 +137,7 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className="pt-4 border-top">
-                <button 
+                <button
                     onClick={handleLogout}
                     className="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2 shadow-sm"
                     style={{ borderRadius: '8px', fontWeight: 'bold' }}
@@ -165,9 +164,6 @@ const TARGET_MONTH_INDEX = 7;
 const TARGET_MONTH_NAME = 'August';
 const DAYS_OF_WEEK = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
 
-
-//const res = await fetch("/api/time");
-//const { year, month } = await res.json();
 
 const getDaysInMonth = (year, monthIndex) => {
     const date = new Date(year, monthIndex, 1);
@@ -314,10 +310,9 @@ const DeliveryPlanCalendar = () => {
                 </div>
 
 
-                {/* KALENDER */}
                 <div className="flex-grow-1 p-4 text-dark">
 
-                    {/* HEADER */}
+
                     <div className="d-flex justify-content-between align-items-center mb-4">
                         <div className="d-flex align-items-center">
                             <img
@@ -335,10 +330,10 @@ const DeliveryPlanCalendar = () => {
                         </div>
                     </div>
 
-                    {/* CALENDAR CONTAINER */}
+
                     <div className="calendar-container">
 
-                        {/* DAYS OF WEEK */}
+
                         <div className="row g-0 text-white">
                             {DAYS_OF_WEEK.map((day, index) => (
                                 <div
@@ -351,12 +346,11 @@ const DeliveryPlanCalendar = () => {
                             ))}
                         </div>
 
-                        {/* CALENDAR GRID */}
                         <div className="calendar-grid">
                             {renderCalendarGrid()}
                         </div>
 
-                        {/* FOOTER */}
+
                         <div className="d-flex footer-notes">
                         </div>
                     </div>

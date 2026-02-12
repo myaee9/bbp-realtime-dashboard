@@ -5,7 +5,6 @@ import LogoImage from './assets/PT_BBP_LOGODASHBOARD.png';
 import LogArrivalTable from './LogArrivalTable';
 import { useNavigate } from 'react-router-dom';
 
-// --- CSS STYLES (Disinkronkan dengan RejectGradingFG) ---
 const customStyles = `
 * { 
     margin: 0 !important; 
@@ -62,10 +61,8 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -95,7 +92,6 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -125,7 +121,7 @@ const LogArrival = () => {
         <div className="d-flex dashboard-bg min-vh-100">
             <style>{customStyles}</style>
             
-            {/* Toggler - Menggunakan zIndex dan koordinat yang persis dengan RejectGradingFG */}
+
             <div 
                 className="position-absolute top-0 start-0 p-3 sidebar-toggle-btn text-success" 
                 onClick={() => setSidebarOpen(!sidebarOpen)} 
@@ -134,18 +130,17 @@ const LogArrival = () => {
                 ⋮
             </div>
 
-            {/* Sidebar Wrapper */}
+
             <div className={sidebarOpen ? "" : "sidebar-closed"}>
                 <Sidebar />
             </div>
 
-            {/* Area Konten Utama */}
+
             <div className="flex-grow-1 position-relative">
                 <Container fluid className="p-0">
-                    {/* Header Area yang Sejajar Vertikal dengan Logo Sidebar */}
                     <div className="bg-white px-4 py-3 border-0 m-0" style={{ borderBottom: 'none' }}>
                         <div className="d-flex justify-content-between align-items-center">
-                            <div className="ps-4"> {/* Padding tambahan agar teks tidak tertimpa ikon ⋮ saat sidebar tutup */}
+                            <div className="ps-4"> 
                                 <h1 style={{ color: '#1a5276', fontWeight: 'bold', fontSize: '1.8rem', margin: 0 }}>Performance Kedatangan Log</h1>
                                 <h1 style={{ color: '#1a5276', fontWeight: 'bold', fontSize: '2rem', margin: 0 }}>PT. B B P</h1>
                             </div>

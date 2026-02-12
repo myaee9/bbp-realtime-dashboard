@@ -12,14 +12,12 @@ const GradingCurrentMonth = () => {
   ];
 
   return (
-    /* Container utama dipaksa memenuhi 100% tinggi layar sisa */
     <div style={{ width: "100%", height: "calc(100vh - 100px)", display: "flex", flexDirection: "column", background: "#f8f9fa" }}>
       
       <div style={{ background: "white", padding: "15px", fontSize: "22px", fontWeight: "bold", borderBottom: "1px solid #ddd" }}>
         JENIS REJECT BULAN INI
       </div>
 
-      {/* Area Tabel menggunakan flex-grow agar menarik sisa ruang ke bawah */}
       <div style={{ flexGrow: 1, overflow: "auto", background: "white" }}>
         <table style={{ width: "100%", height: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
           <thead>

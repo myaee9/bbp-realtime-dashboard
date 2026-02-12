@@ -264,10 +264,10 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
+    
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
+    
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -297,7 +297,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
+   
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -489,12 +489,12 @@ const RejectHotpress = () => {
                     ⋮
                 </div>
 
-                {/* SIDEBAR */}
+         
                 <div className={sidebarOpen ? "" : "sidebar-closed"}>
                     <Sidebar />
                 </div>
 
-                {/* MAIN CONTENT */}
+        
                 <div className="flex-grow-1 d-flex flex-column min-vh-100">
                     <div style={{ padding: "0px" }}></div>
                     <div className="reject-dashboard flex-grow-1">
@@ -650,7 +650,7 @@ const RejectHotpress = () => {
                                 </div>
                             </div>
 
-                            {/* RIGHT: CHART */}
+                      
                             <div className="right-panel panel">
                                 <div className="section-title">CHART REJECT</div>
                                 <div className="chart-card">

@@ -28,9 +28,10 @@ ChartJS.register(
     PointElement
 );
 
-// --- SEPARATED CSS ---
 
-// Sidebar Styles dari RejectHotpress.jsx
+
+
+
 const sidebarStyles = `
 .sidebar {
   background-color: #ffffff;
@@ -55,7 +56,7 @@ const sidebarStyles = `
 }
 `;
 
-// Global & Dashboard Styles (Tetap milik Sanding)
+
 const customStyles = `
 * {
   margin: 0!important;
@@ -172,7 +173,7 @@ html, body, #root {
 }
 `;
 
-// --- DATA ---
+
 const rejectData = [
     { bulan: 'January-2025', workcenter: 'SANDING', dicek: 20674, oke: 18417, reject: 2238, persen: 10.83 },
     { bulan: 'February-2025', workcenter: 'SANDING', dicek: 22029, oke: 20700, reject: 1343, persen: 6.10 },
@@ -190,7 +191,7 @@ const rejectData = [
 
 const totalData = { dicek: 168145, oke: 138994, reject: 21106, persen: 12.55 };
 
-// --- CHART CONFIG ---
+
 const chartDataSliceIndex = 7; 
 const labels = rejectData.map(d => d.bulan.replace('-', ' ')); 
 const rejectCounts = rejectData.map(d => d.reject);
@@ -260,7 +261,6 @@ const chartOptions = {
     },
 };
 
-// --- COMPONENTS ---
 
 const PercentageLabels = ({ chartData, chartOptions }) => {
     const dataPoints = chartData.datasets[1].data; 
@@ -324,10 +324,10 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
+
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
+            
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -357,7 +357,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
+         
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -371,19 +371,16 @@ const Sidebar = () => {
     );
 };
 
-// --- MAIN COMPONENT ---
 const RejectSanding = () => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
-    // Tambahkan state ini saja untuk toggle tampilan
     const [viewCurrentMonth, setViewCurrentMonth] = useState(false);
 
     return (
         <div className="d-flex dashboard-bg min-vh-100">
-            {/* Menggabungkan kedua style block */}
             <style>{sidebarStyles}</style>
             <style>{customStyles}</style>
 
-            {/* Sidebar toggle logic sesuai format Hotpress */}
+          
             <div
                 className="position-absolute top-0 start-0 p-3 sidebar-toggle-btn text-success"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -416,7 +413,7 @@ const RejectSanding = () => {
                         <Col xs={5} className="d-flex justify-content-end align-items-center pe-4 py-3">
                             <div className="date-box me-3">Friday, 01 August 2025</div>
                             
-                            {/* Tombol yang sekarang berfungsi */}
+        
                             <Button 
                                 variant="primary" 
                                 className="reject-button"
@@ -427,7 +424,7 @@ const RejectSanding = () => {
                         </Col>
                     </Row>
 
-                    {/* Logika Tampilan: Jika viewCurrentMonth true, tampilkan komponen SandingCurrentMonth */}
+                  
                     {viewCurrentMonth ? (
                         <div className="content-area">
                             <SandingCurrentMonth />

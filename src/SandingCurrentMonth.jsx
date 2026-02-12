@@ -14,7 +14,6 @@ const SandingCurrentMonth = () => {
     const styles = `
         .dashboard-wrapper {
             width: 100%; 
-            /* Mengikuti dimensi Grading */
             height: calc(100vh - 100px); 
             display: flex;
             flex-direction: column;
@@ -31,13 +30,13 @@ const SandingCurrentMonth = () => {
 
         .section-title {
             font-weight: bold;
-            font-size: 22px; /* Disamakan dengan Grading */
+            font-size: 22px; 
             color: #333;
             margin: 0;
         }
 
         .table-scroll-area {
-            flex-grow: 1; /* Menarik sisa ruang layar ke bawah */
+            flex-grow: 1; 
             overflow: auto;
             background: white;
         }
@@ -46,8 +45,8 @@ const SandingCurrentMonth = () => {
             border-collapse: collapse !important;
             font-size: 13px;
             width: 100%;
-            height: 100%; /* Agar tabel mengisi area scroll */
-            table-layout: fixed; /* Kunci agar proporsional seperti Grading */
+            height: 100%; 
+            table-layout: fixed; 
             margin-bottom: 0 !important;
         }
 
@@ -55,14 +54,14 @@ const SandingCurrentMonth = () => {
             background-color: #3B3B3B !important;
             color: #ffffff !important;
             border: 1px solid #dee2e6 !important;
-            padding: 10px; /* Sesuai tdStyle Grading */
+            padding: 10px; 
             text-align: center;
         }
 
         .table-enterprise tbody td {
             text-align: center;
             border: 1px solid #dee2e6 !important;
-            padding: 10px; /* Sesuai tdStyle Grading */
+            padding: 10px; 
         }
 
         .col-gray {

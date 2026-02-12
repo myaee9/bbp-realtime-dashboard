@@ -29,7 +29,7 @@ ChartJS.register(
     PointElement
 );
 
-// --- CSS STYLES ---
+
 const sidebarStyles = `
 .sidebar {
   background-color: #ffffff;
@@ -71,7 +71,7 @@ html, body, #root { background-color: #f8f9fa; }
 .chart-card { background-color: #262626; color: white; padding: 15px; height: 500px; border-radius: 5px; border: none; }
 `;
 
-// --- DATA ---
+
 const rejectData = [
     { bulan: 'January-2025', workcenter: 'GRADING_FI', dicek: 21441, oke: 19831, reject: 1585, persen: 7.39 },
     { bulan: 'February-2025', workcenter: 'GRADING_FI', dicek: 24426, oke: 22293, reject: 2130, persen: 8.72 },
@@ -99,7 +99,7 @@ const chartData = {
             backgroundColor: '#ffff00',
             yAxisID: 'y1',
             barPercentage: 0.6,
-            order: 2, // Diletakkan di layer bawah
+            order: 2, 
         },
         {
             type: 'line',
@@ -111,7 +111,7 @@ const chartData = {
             tension: 0,
             borderWidth: 2,
             pointRadius: 4,
-            order: 1, // Diletakkan di layer atas (di depan bar)
+            order: 1, 
         },
     ],
 };
@@ -157,7 +157,7 @@ const PercentageLabelsFI = ({ chartData, chartOptions }) => {
                             fontSize: '12px', 
                             fontWeight: 'bold', 
                             pointerEvents: 'none',
-                            zIndex: 10 // Paksa tampil di depan
+                            zIndex: 10 
                         }}
                     >
                         {(rate * 100).toFixed(2)}%
@@ -211,10 +211,10 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
+       
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
+               
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -244,7 +244,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
+          
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -293,7 +293,7 @@ const RejectGradingFI = () => {
                         </Col>
                     </Row>
 
-                  {/* Bagian Konten Dinamis */}
+              
                     {!isDetailView ? (
                         <Row className="content-area m-0">
                             <Col md={6}>
@@ -342,7 +342,7 @@ const RejectGradingFI = () => {
                             </Col>
                         </Row>
                     ) : (
-                        /* Tampilan Detail Saat Tombol Current Month Diklik */
+                        
                         <div className="content-area m-0 p-0">
                             <GradingFICurrentMonth />
                         </div>

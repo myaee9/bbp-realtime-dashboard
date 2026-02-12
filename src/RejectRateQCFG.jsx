@@ -227,10 +227,10 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
+
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
+               
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -260,7 +260,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
+      
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -398,7 +398,7 @@ const Top3RejectByBuyerChart = ({ buyerData }) => {
 };
 
 
-// --- MAIN COMPONENT ---
+
 const RejectRateQCFG = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -425,7 +425,6 @@ const RejectRateQCFG = () => {
 
       <div className="d-flex dashboard-bg min-vh-100 text-dark">
 
-        {/* === TOGGLE === */}
         <div
           className="position-absolute top-0 start-0 p-3 sidebar-toggle-btn text-success"
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -440,15 +439,15 @@ const RejectRateQCFG = () => {
           ⋮
         </div>
 
-        {/* === SIDEBAR === */}
+
         <div className={sidebarOpen ? "" : "sidebar-closed"}>
           <Sidebar />
         </div>
 
-        {/* === MAIN CONTENT === */}
+   
         <div className="flex-grow-1 p-4">
 
-          {/* HEADER DASHBOARD */}
+       
           <div className="d-flex justify-content-between align-items-start pb-3 mb-4">
             <h1 className="h4 fw-bold text-success">REJECT RATE QC GRADING FG</h1>
             <p className="fs-3 font-monospace text-warning">{formattedTime}</p>

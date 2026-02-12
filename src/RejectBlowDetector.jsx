@@ -64,11 +64,14 @@ html, body, #root {
 }
 
 
-/* GAYA KHUSUS DASHBOARD UNTUK MATCHING VISUAL */
 
-/* Header Area (TELAH Dikecilkan LAGI) */
+
+
+
+
+
 .header-bg {
-    background-color: #006666; /* Hijau Tosca Tua */
+    background-color: #006666;
     color: white;
     padding: 2px 0;
 }
@@ -88,12 +91,12 @@ html, body, #root {
 .subtitle-style {
     font-weight: bold;
     font-size: 2.2rem; 
-    color: #FFFF00; /* Kuning Terang */
+    color: #FFFF00;
     line-height: 1;
 }
 
 .date-box {
-    background-color: #003366; /* Biru Tua */
+    background-color: #003366; 
     color: white;
     padding: 6px 10px; 
     text-align: center;
@@ -103,9 +106,9 @@ html, body, #root {
     white-space: nowrap; 
 }
 
-/* Tombol Reject (TELAH Dikecilkan LAGI) */
+
 .reject-button {
-    background-color: #9370DB; /* Ungu */
+    background-color: #9370DB;
     color: white;
     font-weight: bold;
     font-size: 0.9rem; 
@@ -113,20 +116,17 @@ html, body, #root {
     padding: 2px 10px; 
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Ganti warna jika dalam mode detail agar lebih serasi dengan gambar */
     transition: background-color 0.3s; 
 }
 
 .reject-button-detail {
-    background-color: #0A3C6B; /* Biru Tua/Gelap, lebih match dengan header tabel detail */
+    background-color: #0A3C6B; 
 }
 
 .reject-button-icon {
     display: none;
 }
 
-
-/* Content Area */
 .content-area {
     background-color: white;
     padding: 1.5rem !important;
@@ -139,9 +139,9 @@ html, body, #root {
     margin-bottom: 10px;
 }
 
-/* Table Styles */
+
 .table-header {
-    background-color: #003366; /* Biru Tua */
+    background-color: #003366; 
     color: white;
     font-weight: bold;
     font-size: 1rem;
@@ -151,23 +151,22 @@ html, body, #root {
 }
 
 .table-row {
-    background-color: #DCDCDC; /* Grey/Abu-abu muda */
+    background-color: #DCDCDC; 
     color: black;
     font-size: 0.8rem;
     text-align: center;
 }
 
 .table-total-row {
-    background-color: #808080; /* Abu-abu */
+    background-color: #808080; 
     color: white;
     font-weight: bold;
     font-size: 1rem;
     text-align: center;
 }
 
-/* Chart Styles */
 .chart-card {
-    background-color: #36454F; /* Dark Slate Gray untuk background chart */
+    background-color: #36454F; 
     color: white;
     padding: 15px;
     height: 500px; 
@@ -175,22 +174,20 @@ html, body, #root {
     border: none;
 }
 
-/* Penyesuaian kolom untuk membuat tabel terlihat lebih padat */
 .table-compact-col th, .table-compact-col td {
     padding: 0.5rem !important;
 }
 
-/* --- START STYLE DETAIL BULAN INI (Hanya Menjaga Gaya Umum untuk komponen terpisah) --- */
 
 .detail-table-container {
     padding: 1.5rem;
-    background-color: #f8f9fa; /* Background halaman detail */
+    background-color: #f8f9fa; 
 }
 
 .detail-section-title {
     font-size: 20px;
     font-weight: bold;
-    color: #36454F; /* Biru/Abu gelap, menyesuaikan judul konten */
+    color: #36454F; 
     margin-top: 0.5rem; 
     margin-bottom: 1rem;
 }
@@ -242,11 +239,8 @@ html, body, #root {
     text-align: left !important;
     padding-left: 10px !important;
 }
-/* --- END STYLE DETAIL BULAN INI --- */
 `;
 
-
-// Mendaftarkan komponen Chart.js yang diperlukan
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -258,7 +252,6 @@ ChartJS.register(
     PointElement
 );
 
-// --- Data untuk Tabel dan Chart (DIPERTAHANKAN) ---
 const rejectData = [
     { bulan: 'January-2025', workcenter: 'BLOW_DETECTOR', dicek: 19286, oke: 15822, reject: 3464, persen: 17.96 },
     { bulan: 'February-2025', workcenter: 'BLOW_DETECTOR', dicek: 18673, oke: 15367, reject: 3306, persen: 17.70 },
@@ -297,7 +290,6 @@ const chartData = {
             data: rejectCounts.slice(0, chartDataSliceIndex),
             backgroundColor: '#003366', 
             yAxisID: 'y1',
-            // OPTIMASI: Menggunakan percentage agar responsif dan tidak menempel
             barPercentage: 0.6, 
             categoryPercentage: 0.8,
             borderRadius: 0, 
@@ -406,7 +398,6 @@ const PercentageLabels = ({ chartData, chartOptions }) => {
                  <Bar data={chartData} options={chartOptions} />
             </div>
            
-            {/* Label Persen (Kuning) */}
             {dataPoints.map((rate, index) => {
                 const count = rejectCounts[index];
                 const lineRateNormalized = (rate / chartOptions.scales.y2.max);
@@ -437,7 +428,6 @@ const PercentageLabels = ({ chartData, chartOptions }) => {
                 );
             })}
             
-            {/* Label Count (Putih, di tengah bar) */}
             {rejectCounts.map((count, index) => {
                 const barHeightNormalized = count / y1Max;
                 const barYPos = plotAreaTop + (1 - barHeightNormalized) * plotAreaHeight;
@@ -491,10 +481,8 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar p-3 text-dark h-100 d-flex flex-column justify-content-between flex-shrink-0" style={{ width: '250px', minWidth: '250px' }}>
-            {/* Bagian Atas: Navigasi (Identik dengan DeliveryPlan) */}
             <div>
                 <div className="mb-4">
-                    {/* Menggunakan LogoImage saja seperti di DeliveryPlan agar tidak mendominasi */}
                     <img src={LogoImage} alt="PT BBP Logo"
                         className="img-fluid"
                         style={{ maxWidth: '100%', borderRadius: '4px', padding: '5px' }} />
@@ -524,7 +512,6 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Bagian Bawah: Tombol Logout */}
             <div className="pt-4 border-top">
                 <button
                     onClick={handleLogout}
@@ -570,7 +557,6 @@ const RejectBlowDetector = () => {
 
 
         <Container fluid style={{ padding: '0' }}>
-            {/* --- Header Utama (Hanya Dirender SEKALI) --- */}
             <Row className="header-bg align-items-center">
                 <Col xs={7} className="ps-4 py-3"> 
                     <p className="company-name">PT.BAHANA BHUMIPHALA PERSADA</p>
@@ -579,11 +565,10 @@ const RejectBlowDetector = () => {
                     </div>
                 </Col>
                 <Col xs={5} className="d-flex justify-content-end align-items-center pe-4 py-3">
-                    {/* Kotak Tanggal */}
                     <div className="date-box me-3">
                         Friday, 01 August 2025
                     </div>
-                    {/* Tombol Toggle View (Teks dan Gaya Dinamis) */}
+
                     <Button 
                         variant="primary" 
                         className={`reject-button d-flex align-items-center ${showDetail ? 'reject-button-detail' : ''}`}
@@ -595,14 +580,13 @@ const RejectBlowDetector = () => {
                 </Col>
             </Row>
 
-            {/* --- Konten Utama - Menggunakan Conditional Rendering --- */}
+
         {showDetail ? (
     <div style={{ background: "#2A7A8C", minHeight: "100vh", height: "100%" }}>
         <BlowDetectCurrentMonth />
     </div>
 ) : (
     <Row className="content-area">
-                    {/* Kolom Kiri: Reject Per Bulan (Tabel) */}
                     <Col md={6}>
                         <h4 className="content-title">REJECT PER BULAN</h4>
                         <div style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}>
@@ -633,7 +617,6 @@ const RejectBlowDetector = () => {
                                             </tr>
                                         );
                                     })}
-                                    {/* Total Row */}
                                     <tr className="table-total-row">
                                         <td colSpan="3">TOTAL</td>
                                         <td style={{textAlign: 'right'}}>{totalData.dicek.toLocaleString()}</td>
@@ -646,7 +629,6 @@ const RejectBlowDetector = () => {
                         </div>
                     </Col>
 
-                    {/* Kolom Kanan: Chart Reject */}
                     <Col md={6}>
                         <h4 className="content-title">CHART REJECT</h4>
                         <Card className="chart-card mt-2">
