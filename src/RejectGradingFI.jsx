@@ -354,3 +354,11 @@ const RejectGradingFI = () => {
 };
 
 export default RejectGradingFI;
+
+<Row className="content-area m-0">
+      <Col md={6}>	
+ 		<Card className="chart-card mt-2">
+<PercentageLabelsFI chartData={chartData}chartOptions={chartOptions} />
+ </Card>
+ </Col>
+ </Row>

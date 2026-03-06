@@ -63,13 +63,6 @@ html, body, #root {
   z-index: 999;
 }
 
-
-
-
-
-
-
-
 .header-bg {
     background-color: #006666;
     color: white;
@@ -564,19 +557,17 @@ const RejectBlowDetector = () => {
                         Overview <span className="subtitle-style">REJECT BLOW DETECTOR 2025</span>
                     </div>
                 </Col>
-                <Col xs={5} className="d-flex justify-content-end align-items-center pe-4 py-3">
-                    <div className="date-box me-3">
-                        Friday, 01 August 2025
-                    </div>
-
-                    <Button 
+                <Col xs={5} className="d-flex flex-column align-items-end pe-4 py-3">
+                 <Button 
                         variant="primary" 
-                        className={`reject-button d-flex align-items-center ${showDetail ? 'reject-button-detail' : ''}`}
+                        className={`reject-button mb-2 ${showDetail ? 'reject-button-detail' : ''}`}
                         onClick={() => setShowDetail(!showDetail)} 
                     >
-                        <span className="reject-button-icon"></span>
-                        {showDetail ? 'Back to Overview' : 'Current Month'}
+                           {showDetail ? 'Back to Overview' : 'Current Month'}
                     </Button>
+                    <div className="date-box">
+                        Friday, 01 August 2025
+                    </div>
                 </Col>
             </Row>
 

@@ -14,7 +14,6 @@ import {
 } from "recharts";
 
 
-
 const customStyles = `
 * {
     margin: 0 !important;
@@ -258,11 +257,8 @@ const RejectByMachineDashboard = () => {
                     <div style={{ padding: '20px 0' }}></div>
 
 
-                    <div className="container-fluid p-4">
-                      <div className="row" style={{ gap: "0px" }}>
-
-
-        
+                    <div className="container-fluid p-3">
+                      <div className="row g-3">
                             <div className="col-md-7 mb-4" style={{ paddingRight: '10px' }}>
                                 <div
                                     style={{
